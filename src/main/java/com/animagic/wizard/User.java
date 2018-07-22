@@ -1,3 +1,5 @@
+package com.animagic.wizard;
+
 import javax.persistence.*;
 
 @Entity
@@ -5,14 +7,12 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int userId;
     private String name;
     private String email;
     private String telephone;
 
-    public User() {
-
-    }
+    public User() {}
 
     public User(String name, String email, String telephone) {
         this.name = name;
@@ -20,4 +20,7 @@ public class User {
         this.telephone = telephone;
     }
 
+    public String getName() {
+        return this.name;
+    }
 }

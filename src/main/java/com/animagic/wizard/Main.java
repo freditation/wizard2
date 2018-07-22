@@ -1,3 +1,5 @@
+package com.animagic.wizard;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
 import org.hibernate.query.Query;
@@ -17,7 +19,9 @@ public class Main {
             Configuration configuration = new Configuration();
             configuration.configure();
 
-            ourSessionFactory = configuration.buildSessionFactory();
+            ourSessionFactory = configuration
+                    .addAnnotatedClass(User.class)
+                    .buildSessionFactory();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }
